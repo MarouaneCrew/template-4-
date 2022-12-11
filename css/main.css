@@ -1,0 +1,747 @@
+/* Start Global Rules */
+
+:root {
+  --main-transition: 0.5s;
+  --text-color: #6a6969;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 9000px;
+}
+
+body {
+  font-family: Arial, Tahoma;
+  user-select: none;
+  background-color: #f1f5f9;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+}
+
+/* Start Global Rules */
+
+/* Start Grid System */
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+/* End Grid System */
+
+/* Start The Menu */
+
+.menu {
+  position: fixed;
+  left: -200px;
+  width: 200px;
+  background-color: #eee;
+  height: 100vh;
+  transition: var(--main-transition);
+  z-index: 10;
+}
+
+.menu.show {
+  left: 0;
+}
+
+.menu .toggle {
+  width: 25px;
+  position: absolute;
+  background-color: #5a5a5a;
+  right: -25px;
+  top: 50px;
+  padding: 2px 4px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  height: 25px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.menu .toggle span {
+  width: 100%;
+  display: block;
+  height: 3px;
+  margin: 3px 0;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: var(--main-transition);
+}
+
+.menu.show .toggle {
+  background-color: #eee;
+}
+
+.menu.show .toggle span {
+  background-color: #000;
+}
+
+.menu.show .toggle span:first-child {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.menu.show .toggle span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.menu.show .toggle span:last-child {
+  opacity: 0;
+  transition: var(--main-transition);
+}
+
+.menu .content {
+  padding: 30px 10px;
+}
+
+.menu .content h2 {
+  margin: 0;
+  text-align: center;
+  position: relative;
+}
+
+.menu .content h2::before {
+  content: "";
+  position: absolute;
+  width: 75%;
+  height: 3px;
+  background-color: black;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+}
+
+.menu .content h2::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: black;
+  bottom: -15px;
+  left: 50%;
+  transform: translate(-50%, 45%);
+  border: 4px solid #eee;
+}
+
+.menu .content .sections {
+  padding-top: 30px;
+}
+
+.menu .content .sections div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: var(--main-transition);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu .content .sections div.active,
+.menu .content .sections div:hover {
+  background-color: #dbdbdb;
+}
+
+.menu .content .sections div i {
+  margin-right: 20px;
+  width: 15px;
+}
+
+.menu .content .sections div p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* End The Menu */
+
+/* Start Headmenu */
+
+.headmenu {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  position: relative;
+}
+
+.headmenu form i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 28px;
+}
+
+.headmenu form input {
+  padding: 5px;
+  padding-left: 30px;
+  border-radius: 8px;
+  border: 1px solid #b5b5b5;
+  outline: none;
+  margin-left: 10px;
+}
+
+.headmenu form input::placeholder,
+.headmenu form input:focus::placeholder {
+  transition: var(--main-transition);
+}
+
+.headmenu form input:focus::placeholder {
+  opacity: 0;
+}
+
+.headmenu .content {
+  display: flex;
+  align-items: center;
+  width: 60px;
+  justify-content: space-between;
+  margin: 0 10px 0 0;
+}
+
+.headmenu .content i {
+  position: relative;
+  cursor: pointer;
+}
+
+.headmenu .content i::after {
+  content: "";
+  position: absolute;
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: red;
+  border-radius: 50%;
+  top: -4px;
+  right: -5px;
+}
+
+.headmenu .content img {
+  width: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* End Headmenu */
+
+/* Start Dashboard */
+
+.dashboard {
+  margin-top: 3%;
+}
+
+.dashboard h1 {
+  position: relative;
+}
+
+.dashboard h1::after {
+  content: "";
+  position: absolute;
+  background-color: red;
+  background-image: linear-gradient(to right, black, white 70%);
+  height: 3px;
+  width: 140px;
+  left: 0;
+  bottom: -5px;
+  border-radius: 5px;
+}
+
+.dashboard .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+/* Start Welcome Section */
+
+.dashboard .welcome {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dashboard .welcome .text {
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: relative;
+}
+
+.dashboard .welcome .text .box {
+  padding: 0 15px;
+}
+
+.dashboard h2 {
+  margin: 10px 0 0;
+  font-size: 22px;
+}
+
+.dashboard p {
+  color: var(--text-color);
+  font-size: 15px;
+}
+
+.dashboard .welcome .text .image img {
+  width: 90%;
+  margin-left: 20px;
+}
+
+.dashboard .welcome .text > img {
+  position: absolute;
+  width: 40px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  bottom: 0;
+  transform: translateY(50%);
+  left: 2%;
+  z-index: 1;
+}
+
+.dashboard .welcome .info {
+  background-color: #fff;
+}
+
+.dashboard .welcome .info {
+  padding: 27% 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.dashboard .welcome .info::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #dbdbdb;
+  left: 0;
+  top: 50px;
+}
+
+.dashboard .welcome .info::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #dbdbdb;
+  left: 0;
+  bottom: 50px;
+}
+
+.dashboard .welcome .info .box {
+  width: 110px;
+}
+
+.dashboard h4 {
+  margin: 0;
+}
+
+.dashboard .welcome button {
+  position: absolute;
+  right: 15px;
+  bottom: 8px;
+  border: none;
+  color: white;
+  background-color: #127cff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.dashboard .welcome button:hover {
+  background-color: #0070fb;
+}
+
+/* End Welcome Section */
+
+/* Start Draft Section */
+
+.dashboard .draft {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.dashboard .draft form input,
+.dashboard .draft form textarea {
+  width: 100%;
+  padding: 10px 15px;
+  color: var(--text-color);
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.dashboard .draft form input:focus::placeholder,
+.dashboard .draft form input::placeholder,
+.dashboard .draft form textarea:focus::placeholder,
+.dashboard .draft form textarea::placeholder {
+  transition: var(--main-transition);
+}
+
+.dashboard .draft form input:focus::placeholder,
+.dashboard .draft form textarea:focus::placeholder {
+  opacity: 0;
+}
+
+.dashboard .draft form textarea {
+  max-width: 100%;
+  min-width: 100%;
+  max-height: 182px;
+  min-height: 182px;
+  margin-bottom: 0;
+  transition: var(--main-transition);
+}
+
+.dashboard .draft .button {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 5px;
+}
+
+.dashboard .draft button {
+  border: none;
+  color: white;
+  background-color: #127cff;
+  border-radius: 5px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.dashboard .draft button:hover {
+  background-color: #0070fb;
+}
+
+@media (min-width: 991px) and (max-width: 1199px) {
+  .dashboard .draft form textarea {
+    min-height: 230px;
+    max-height: 230px;
+  }
+}
+
+/* End Draft Section */
+
+/* Start Year Target Section */
+
+.dashboard .year-target {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.dashboard .year-target .box {
+  display: flex;
+}
+
+.dashboard .year-target .box:not(:last-of-type) {
+  margin-bottom: 15px;
+}
+
+.dashboard .year-target .box .graphic {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+
+.dashboard .year-target .box:first-of-type .graphic,
+.dashboard .year-target .box:nth-of-type(1) .progress .portion {
+  background-color: #2196f350;
+}
+
+.dashboard .year-target .box:nth-of-type(2) .graphic,
+.dashboard .year-target .box:nth-of-type(2) .progress .portion {
+  background-color: #ff980050;
+}
+
+.dashboard .year-target .box:last-of-type .graphic,
+.dashboard .year-target .box:nth-of-type(3) .progress .portion {
+  background-color: #4caf5050;
+}
+
+.dashboard .year-target .box:first-of-type i {
+  color: #008eff;
+}
+
+.dashboard .year-target .box:nth-of-type(2) i {
+  color: #ff8d00;
+}
+
+.dashboard .year-target .box:last-of-type .graphic i {
+  color: #2eab33;
+}
+
+.dashboard .year-target .box .progress {
+  flex: 1;
+}
+
+.dashboard .year-target .box .progress h4,
+.dashboard .year-target .box .progress p {
+  margin: 5px 0;
+}
+
+.dashboard .year-target .box .progress h4 {
+  color: var(--text-color);
+  font-weight: unset;
+}
+
+.dashboard .year-target .box .progress p {
+  color: black;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.dashboard .year-target .box .progress .portion {
+  width: 100%;
+  height: 3px;
+}
+
+.dashboard .year-target .box .progress .portion span {
+  height: 100%;
+  display: block;
+  position: relative;
+}
+
+.dashboard .year-target .box:nth-of-type(1) .progress .portion span {
+  background-color: #008eff;
+}
+
+.dashboard .year-target .box:nth-of-type(2) .progress .portion span {
+  background-color: #ff8d00;
+}
+
+.dashboard .year-target .box:nth-of-type(3) .progress .portion span {
+  background-color: #2eab33;
+}
+
+.dashboard .year-target .box .progress .portion span::before {
+  content: "";
+  position: absolute;
+  border-width: 6px;
+  border-style: solid;
+  top: -11px;
+  left: 100%;
+  transform: translateX(-50%);
+}
+
+.dashboard .year-target .box:nth-of-type(1) .progress .portion span::before {
+  border-color: #008eff transparent transparent;
+}
+
+.dashboard .year-target .box:nth-of-type(2) .progress .portion span::before {
+  border-color: #ff8d00 transparent transparent;
+}
+
+.dashboard .year-target .box:nth-of-type(3) .progress .portion span::before {
+  border-color: #2eab33 transparent transparent;
+}
+
+.dashboard .year-target .box .progress .portion span:after {
+  content: "";
+  position: absolute;
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  top: -35px;
+  width: 30px;
+  text-align: center;
+  left: 100%;
+  transform: translateX(-50%);
+}
+
+.dashboard .year-target .box:nth-of-type(1) .progress .portion span:after {
+  content: "40%";
+  background-color: #008eff;
+}
+
+.dashboard .year-target .box:nth-of-type(2) .progress .portion span:after {
+  content: "55%";
+  background-color: #ff8d00;
+}
+
+.dashboard .year-target .box:nth-of-type(3) .progress .portion span:after {
+  content: "75%";
+  background-color: #2eab33;
+}
+
+/* End Year Target Section */
+
+/* Start Statistics */
+
+.dashboard .statistics {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px 15px;
+  position: relative;
+}
+
+.dashboard .statistics .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dashboard .statistics .content .box {
+  flex-basis: 45%;
+  text-align: center;
+  width: 130px;
+  padding: 10px 0;
+  border: 2px solid #b5b5b5;
+  border-radius: 15px;
+  height: 133px;
+}
+
+.dashboard .statistics .content .box h4 {
+  font-size: 22px;
+}
+
+.dashboard .statistics .content .box h4,
+.dashboard .statistics .content .box p {
+  margin: 10px;
+}
+
+.dashboard .statistics .content .box i {
+  padding: 2px;
+  font-size: 27px;
+  width: 45px;
+}
+
+.dashboard .statistics .content .box:nth-of-type(1) i {
+  color: #ff9800;
+  border: 3px solid #dd9800;
+  border-radius: 5px;
+}
+
+.dashboard .statistics .content .box:nth-of-type(2) i {
+  color: #1e89dd;
+}
+
+.dashboard .statistics .content .box:nth-of-type(3) i {
+  color: #289f2d;
+}
+
+.dashboard .statistics .content .box:nth-of-type(4) i {
+  color: #c72519;
+}
+
+/* End Statistics */
+
+/* Start Latest News */
+
+.dashboard .latest-news {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.dashboard .latest-news h2 {
+  margin-bottom: 15px;
+}
+
+.dashboard .latest-news .box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard .latest-news .box:not(:last-of-type) {
+  margin-bottom: 34px;
+}
+
+.dashboard .latest-news hr {
+  position: relative;
+  top: -15px;
+  border: 0;
+  border-radius: 5px;
+  height: 1px;
+  background-color: #dbdada;
+}
+
+.dashboard .latest-news .box img {
+  width: 53px;
+}
+
+.dashboard .latest-news .box .text {
+  width: 208px;
+  padding-left: 10px;
+}
+
+.dashboard .latest-news .box .text h4 {
+  font-size: 14px;
+}
+
+.dashboard .latest-news .box .text p {
+  margin: 8px 0;
+  font-size: 12px;
+}
+
+.dashboard .latest-news .box span {
+  background-color: #eee;
+  font-weight: bold;
+  font-size: 12px;
+  padding: 5px 7px;
+  border-radius: 5px;
+  width: 70px;
+}
+
+/* End Latest News */
+
+/* End Dashboard */
